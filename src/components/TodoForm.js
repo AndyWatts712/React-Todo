@@ -2,12 +2,13 @@ import React from 'react';
 
 class TodoForm extends React.Component {
 
-    constructor () {
+    constructor() {
         super();
         this.state = {
             todoItem: ""
         }
     }
+    
 
     handleChanges = e => {
         this.setState({
@@ -25,15 +26,17 @@ class TodoForm extends React.Component {
 
     render() {
 
-        return(
+        return (
             <div>
-                <input
-                    type='text'
-                    name='todoItem'
-                    value={this.state.todoItem}
-                    onChange={this.handleChange}></input>
-                <button>Add Task</button>
-                <button>Clear Task</button>
+                <form>
+                    <input
+                        type='text'
+                        name='todoItem'
+                        value={this.state.todoItem}
+                        onChange={this.handleChange}></input>
+                    <button onClick={this.handleSubmit}>Add Task</button>
+                    <button onClick={this.toggleCompleted}>Clear Completed</button>
+                </form>
             </div>
         )
     }
