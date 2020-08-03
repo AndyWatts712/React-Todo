@@ -1,9 +1,13 @@
 import React from 'react'
 
 const Todo = (props) => {
-console.log(props)
+
+
+console.log ('PRPS', props)
+
+
         return(
-            <div>
+            <div onClick={() => props.toggleCompleted(props.item.id)}>
                <p>{props.item.task}</p>
             </div>
         )

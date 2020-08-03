@@ -25,7 +25,21 @@ constructor() {
   }
 }
 
+toggleCompleted = id => {
+  this.setState({
+    todoList: this.state.todoList.map(task => {
+      if (task.id === id) {
+        return {
+          ...task,
+          completed: !task.completed
+        }
 
+      } else {
+        return task
+      }
+    })
+  })
+}
 
 addItem = task => {
   const NewTask = {
@@ -44,7 +58,7 @@ addItem = task => {
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addItem={this.addItem} />
-        <ToDoList todoList={this.state.todoList}/>
+        <ToDoList todoList={this.state.todoList} toggleCompleted={this.toggleCompleted}/>
       </div>
     );
   }
